@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">FoodJournalApplication</string>
+    <string name="app_name">Foodjournal</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="login_text">Login</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_button">Login</string>
+    <string name="login_to_signup_button">Don\'t have an account? Sign up</string>
 </resources>

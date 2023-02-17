@@ -1,14 +1,16 @@
 package com.example.foodjournalapplication
 
-import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
-import android.text.format.DateFormat
 import android.util.Log
+import android.widget.Button
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.foodjournalapplication.Entity.recipe
 import com.example.foodjournalapplication.NetworkManager.NetworkCallback
 import com.example.foodjournalapplication.NetworkManager.NetworkManager
 import com.example.foodjournalapplication.databinding.ActivityMainBinding
@@ -20,33 +22,53 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private var telja = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main);
 
-        Log.d("hæ","sdmflkmdsf");
-        val networkManager = NetworkManager.getInstance(this);
-        networkManager.getTest(object : NetworkCallback<String> {
+        Log.d("hæ", "FYRIR");
+        var NM = NetworkManager.getInstance(this);
+        NM!!.getTest(object : NetworkCallback<String> {
             override fun onSuccess(result: String) {
-                    test = result;
-                    Log.d("SDFNJSDFN", test);
+                if (result != null) {
+                    test = result
+                };
+                Log.d("SDFNJSDFN", test);
+                Log.d("SDFNJSDFN", result);
             }
-
             override fun onFailure(errorString: String?) {
-                Log.d("TEST TOTODLSMKM","EPIC Fail");
+                Log.d("TEST TOTODLSMKM", "EPIC Fail");
             }
         })
 
+        val mLayout = findViewById<LinearLayout>(R.id.SVLayout)
+        val button = findViewById<Button>(R.id.NewRecipeButton)
+
+       val loginb = findViewById<Button>(R.id.loginB)
+        loginb.setOnClickListener {
+            val loginIntent = Intent(this@MainActivity, loginActivity::class.java)
+            startActivity(loginIntent)
+        }
+
+
+        button.setOnClickListener {
+            val takki = Button(this@MainActivity)
+            takki.setOnClickListener {
+                val ViewInt = Intent(this@MainActivity, recipeViewActivity::class.java)
+                val s = "Recipe nr " + Integer.toString(telja)
+                telja++
+                val sendRecipe = recipe(s, "letsgooo")
+                ViewInt.putExtra("Recipe", sendRecipe)
+                startActivity(ViewInt)
+            }
+            mLayout.addView(takki)
+        }
+
+        Log.d("NJSK","EFTIR");
+
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        val navView: BottomNavigationView = binding.navView
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        //navView.setupWithNavController(navController)
     }
 }
