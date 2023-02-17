@@ -6,15 +6,10 @@ import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.foodjournalapplication.Entity.recipe
 import com.example.foodjournalapplication.NetworkManager.NetworkCallback
 import com.example.foodjournalapplication.NetworkManager.NetworkManager
 import com.example.foodjournalapplication.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
-        Log.d("hæ", "FYRIR");
         var NM = NetworkManager.getInstance(this);
         NM!!.getTest(object : NetworkCallback<String> {
             override fun onSuccess(result: String) {
@@ -36,7 +30,6 @@ class MainActivity : AppCompatActivity() {
                     test = result
                 };
                 Log.d("SDFNJSDFN", test);
-                Log.d("SDFNJSDFN", result);
             }
             override fun onFailure(errorString: String?) {
                 Log.d("TEST TOTODLSMKM", "EPIC Fail");

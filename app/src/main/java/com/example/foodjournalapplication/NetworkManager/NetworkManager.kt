@@ -33,9 +33,19 @@ class NetworkManager private constructor(private val mContext: Context) {
                 callback.onSuccess(response)
             }
         ) { error: VolleyError -> callback.onFailure(error.toString()) }
-        mQueue!!.add(request);
+        mQueue!!.add(request)
     }
 
+    fun authUser(callback: NetworkCallback<Boolean>){
+        val request = StringRequest(
+            Request.Method.GET, "$BASE_URL/login_app", { response: String ->
+                var gson = Gson()
+                var answer = gson.fromJson(response,Boolean::class.java);
+                callback.onSuccess(answer)
+            }
+        ) { error: VolleyError -> callback.onFailure(error.toString()) }
+        mQueue!!.add(request)
+    }
 
     companion object {
         private const val BASE_URL = "https://foodjournal-production.up.railway.app"
@@ -51,3 +61,4 @@ class NetworkManager private constructor(private val mContext: Context) {
         }
     }
 }
+
