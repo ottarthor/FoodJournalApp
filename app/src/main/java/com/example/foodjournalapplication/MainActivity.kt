@@ -3,6 +3,7 @@ package com.example.foodjournalapplication
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
+
+
         var NM = NetworkManager.getInstance(this);
         NM!!.getTest(object : NetworkCallback<String> {
             override fun onSuccess(result: String) {
@@ -37,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         val mLayout = findViewById<LinearLayout>(R.id.SVLayout)
-        val button = findViewById<Button>(R.id.NewRecipeButton)
+        val buttonNewRec = findViewById<Button>(R.id.NewRecipeButton)
 
        val loginb = findViewById<Button>(R.id.loginB)
         loginb.setOnClickListener {
@@ -45,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(loginIntent)
         }
 
-
+        /*
         button.setOnClickListener {
             val takki = Button(this@MainActivity)
             takki.setOnClickListener {
@@ -58,6 +61,28 @@ class MainActivity : AppCompatActivity() {
             }
             mLayout.addView(takki)
         }
+         */
+
+
+        if (intent.extras != null) {
+            val newRecipe = intent.getSerializableExtra("newRecipe") as recipe
+            val recipeButton = Button(this@MainActivity)
+            val ViewInt = Intent(this@MainActivity, recipeViewActivity::class.java)
+            mLayout.addView(recipeButton)
+            ViewInt.putExtra("Recipe", newRecipe)
+            recipeButton.setText(newRecipe.name)
+            recipeButton.setOnClickListener{
+                startActivity(ViewInt)
+            }
+
+
+        }
+
+        buttonNewRec.setOnClickListener{
+            val newRecIntent = Intent(this@MainActivity, addRecipeActivitiy::class.java)
+            startActivity(newRecIntent)
+        }
+
 
         Log.d("NJSK","EFTIR");
 

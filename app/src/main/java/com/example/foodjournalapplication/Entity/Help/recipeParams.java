@@ -1,24 +1,24 @@
-package is.hi.hbv601g.foodjournal.Entity.Help;
+package com.example.foodjournalapplication.Entity.Help;
 
 import java.io.Serializable;
 
-public class recipeParams {
+public class recipeParams implements Serializable{
 
-    private int cooktime;
-    private int preptime;
-    private int rating;
+    private String cooktime;
+    private String preptime;
+    private String rating;
     private String difficulty;
-    private boolean vegetarian;
-    private boolean vegan;
-    private boolean dairyFree;
-    private boolean glutenFree;
-    private int calories;
-    private int servings;
+    private String vegetarian;
+    private String vegan;
+    private String dairyFree;
+    private String glutenFree;
+    private String calories;
+    private String servings;
 
     public recipeParams(){}
 
-    public recipeParams(int cooktime, int preptime, int rating, String difficulty, boolean vegetarian,
-                        boolean vegan, boolean dairyFree, boolean glutenFree, int calories, int servings) {
+    public recipeParams(String cooktime, String preptime, String rating, String difficulty, String vegetarian,
+                        String vegan, String dairyFree, String glutenFree, String calories, String servings) {
 
         this.cooktime = cooktime;
         this.preptime = preptime;
@@ -32,27 +32,28 @@ public class recipeParams {
         this.servings = servings;
     }
 
-    public int getCooktime() {
+
+    public String getCooktime() {
         return cooktime;
     }
 
-    public void setCooktime(int cooktime) {
+    public void setCooktime(String cooktime) {
         this.cooktime = cooktime;
     }
 
-    public int getPreptime() {
+    public String getPreptime() {
         return preptime;
     }
 
-    public void setPreptime(int preptime) {
+    public void setPreptime(String preptime) {
         this.preptime = preptime;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
@@ -64,51 +65,51 @@ public class recipeParams {
         this.difficulty = difficulty;
     }
 
-    public boolean isVegetarian() {
+    public String isVegetarian() {
         return vegetarian;
     }
 
-    public void setVegetarian(boolean vegetarian) {
+    public void setVegetarian(String vegetarian) {
         this.vegetarian = vegetarian;
     }
 
-    public boolean isVegan() {
+    public String isVegan() {
         return vegan;
     }
 
-    public void setVegan(boolean vegan) {
+    public void setVegan(String vegan) {
         this.vegan = vegan;
     }
 
-    public boolean isDairyFree() {
+    public String isDairyFree() {
         return dairyFree;
     }
 
-    public void setDairyFree(boolean dairyFree) {
+    public void setDairyFree(String dairyFree) {
         this.dairyFree = dairyFree;
     }
 
-    public boolean isGlutenFree() {
+    public String isGlutenFree() {
         return glutenFree;
     }
 
-    public void setGlutenFree(boolean glutenFree) {
+    public void setGlutenFree(String glutenFree) {
         this.glutenFree = glutenFree;
     }
 
-    public int getCalories() {
+    public String getCalories() {
         return calories;
     }
 
-    public void setCalories(int calories) {
+    public void setCalories(String calories) {
         this.calories = calories;
     }
 
-    public int getServings() {
+    public String getServings() {
         return servings;
     }
 
-    public void setServings(int servings) {
+    public void setServings(String servings) {
         this.servings = servings;
     }
 
