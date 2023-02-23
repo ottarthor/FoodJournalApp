@@ -11,4 +11,10 @@
     <string name="description">Description</string>
     <string name="steps">Steps</string>
     <string name="ingredients">Ingredients</string>
+    <string name="signup_text">Sign up</string>
+    <string name="signup_username">Choose a username</string>
+    <string name="signup_password">Choose a password</string>
+    <string name="signup_button">Sign up</string>
+    <string name="signup_to_login_button">Already have an account? Login</string>
+
 </resources>
