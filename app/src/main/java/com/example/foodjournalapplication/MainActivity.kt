@@ -42,10 +42,16 @@ class MainActivity : AppCompatActivity() {
         val mLayout = findViewById<LinearLayout>(R.id.SVLayout)
         val buttonNewRec = findViewById<Button>(R.id.NewRecipeButton)
 
-       val loginb = findViewById<Button>(R.id.loginB)
+        val loginb = findViewById<Button>(R.id.loginB)
         loginb.setOnClickListener {
             val loginIntent = Intent(this@MainActivity, loginActivity::class.java)
             startActivity(loginIntent)
+        }
+
+        val loginb2 = findViewById<Button>(R.id.loginB2)
+        loginb2.setOnClickListener {
+            val signupIntent = Intent(this@MainActivity, signupActivity::class.java)
+            startActivity(signupIntent)
         }
 
         /*

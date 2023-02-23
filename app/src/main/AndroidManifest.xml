@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Foodjournal"
         tools:targetApi="31">
         <activity
+            android:name=".signupActivity"
+            android:exported="false" />
+        <activity
             android:name=".addRecipeActivitiy"
             android:exported="false" />
         <activity
