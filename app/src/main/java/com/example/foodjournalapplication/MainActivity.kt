@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.foodjournalapplication.Entity.recipe
 import com.example.foodjournalapplication.NetworkManager.NetworkCallback
 import com.example.foodjournalapplication.NetworkManager.NetworkManager
+import com.example.foodjournalapplication.Services.userService
 import com.example.foodjournalapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
+        /*
+        val us = userService()
+        us.getUsers()
+        */
 
 
         var NM = NetworkManager.getInstance(this);
@@ -53,21 +58,6 @@ class MainActivity : AppCompatActivity() {
             val signupIntent = Intent(this@MainActivity, signupActivity::class.java)
             startActivity(signupIntent)
         }
-
-        /*
-        button.setOnClickListener {
-            val takki = Button(this@MainActivity)
-            takki.setOnClickListener {
-                val ViewInt = Intent(this@MainActivity, recipeViewActivity::class.java)
-                val s = "Recipe nr " + Integer.toString(telja)
-                telja++
-                val sendRecipe = recipe(s, "letsgooo")
-                ViewInt.putExtra("Recipe", sendRecipe)
-                startActivity(ViewInt)
-            }
-            mLayout.addView(takki)
-        }
-         */
 
 
         if (intent.extras != null) {
