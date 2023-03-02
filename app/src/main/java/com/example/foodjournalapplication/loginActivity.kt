@@ -8,6 +8,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodjournalapplication.NetworkManager.NetworkCallback
 import com.example.foodjournalapplication.NetworkManager.NetworkManager
+import com.example.foodjournalapplication.Entity.User
 
 class loginActivity : AppCompatActivity() {
 
@@ -22,18 +23,28 @@ class loginActivity : AppCompatActivity() {
         loginb.setOnClickListener {
             val username = findViewById<EditText>(R.id.LoginUsernameAreaID).text
             val password = findViewById<EditText>(R.id.LoginPasswordAreaID).text
+            val userL = User(
+                username.toString(),
+                password.toString()
+            );
 
-            var NM = NetworkManager.getInstance(this);
-            NM!!.authUser(object : NetworkCallback<Boolean> {
-                override fun onSuccess(result: Boolean) {
+            /*var NM = NetworkManager.getInstance(this);
+            NM!!.authUserPost(object : NetworkCallback<User> {
+                override fun onSuccess(result: User) {
                     if (result != null) {
                         Log.d("RUFF", result.toString())
                     }
                 }
+
                 override fun onFailure(errorString: String?) {
                     Log.d("TEST TOTODLSMKM", "EPIC Fail");
                 }
-            })
+                override fun getParams() {
+                    Log.d("PARAMETER", "WOW");
+                }
+            }, userL)
+             */
+
             val loginIntent = Intent(this@loginActivity, loginActivity::class.java)
             startActivity(loginIntent)
         }
