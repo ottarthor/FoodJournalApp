@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class user {
+public class User {
     private Long id;
     private String username;
     private String password;
@@ -90,7 +90,12 @@ public class user {
         return list;
     }
 
-    public user() {
+    public User() {
+        groceryWeek = "null";
+    }
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
         groceryWeek = "null";
     }
 

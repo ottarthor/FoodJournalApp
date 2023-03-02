@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main);
 
         var NM = NetworkManager.getInstance(this);
-        NM!!.getTest(object : NetworkCallback<String> {
+        /*NM!!.getTest(object : NetworkCallback<String> {
             override fun onSuccess(result: String) {
                 if (result != null) {
                     test = result
@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
                 Log.d("TEST TOTODLSMKM", "EPIC Fail");
             }
         })
+
+         */
 
         val mLayout = findViewById<LinearLayout>(R.id.SVLayout)
         val button = findViewById<Button>(R.id.NewRecipeButton)
