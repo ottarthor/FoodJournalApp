@@ -35,7 +35,7 @@ class NetworkManager private constructor(private val mContext: Context) {
     }
      */
 
-   /* fun authUser(callback: NetworkCallback<user>){
+    /*fun authUser(callback: NetworkCallback<User>){
         val request = StringRequest(
             Request.Method.GET, "$BASE_URL/login_app", { response: String ->
                 var gson = Gson()
@@ -46,11 +46,13 @@ class NetworkManager private constructor(private val mContext: Context) {
         mQueue!!.add(request)
     }
 
-    fun authUserPost(callback: NetworkCallback<User>, user: User){
+     */
+
+    fun authUserPost(callback: NetworkCallback<String>, user: User){
         val request = object: StringRequest(
             Method.GET, "$BASE_URL/login_app", { response: String ->
                 var gson = Gson()
-                var answer = gson.fromJson(response, user::class.java);
+                var answer = gson.fromJson(response, String::class.java);
                 callback.onSuccess(answer)
             },
 
@@ -64,7 +66,6 @@ class NetworkManager private constructor(private val mContext: Context) {
         }
         mQueue!!.add(request)
     }
-    */
 
 
     companion object {

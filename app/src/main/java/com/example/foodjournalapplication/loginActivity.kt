@@ -28,7 +28,7 @@ class loginActivity : AppCompatActivity() {
                 password.toString()
             );
 
-            /*var NM = NetworkManager.getInstance(this);
+            var NM = NetworkManager.getInstance(this);
             NM!!.authUserPost(object : NetworkCallback<User> {
                 override fun onSuccess(result: User) {
                     if (result != null) {
@@ -43,7 +43,6 @@ class loginActivity : AppCompatActivity() {
                     Log.d("PARAMETER", "WOW");
                 }
             }, userL)
-             */
 
             val loginIntent = Intent(this@loginActivity, loginActivity::class.java)
             startActivity(loginIntent)

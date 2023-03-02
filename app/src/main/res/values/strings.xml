@@ -8,4 +8,13 @@
     <string name="login_password">Password</string>
     <string name="login_button">Login</string>
     <string name="login_to_signup_button">Don\'t have an account? Sign up</string>
+    <string name="description">Description</string>
+    <string name="steps">Steps</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="signup_text">Sign up</string>
+    <string name="signup_username">Choose a username</string>
+    <string name="signup_password">Choose a password</string>
+    <string name="signup_button">Sign up</string>
+    <string name="signup_to_login_button">Already have an account? Login</string>
+
 </resources>
