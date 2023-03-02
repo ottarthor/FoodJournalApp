@@ -17,10 +17,29 @@ class recipeViewActivity : AppCompatActivity() {
             thisrecipe = intent.getSerializableExtra("Recipe") as recipe
         }
 
-        val nameField: TextView = findViewById<TextView>(R.id.recipe_name)
-        val descField: TextView = findViewById<TextView>(R.id.recipe_desc)
-        nameField.text = thisrecipe.name
-        descField.text = thisrecipe.text
+         val nameField: TextView = findViewById<TextView>(R.id.recipe_name)
+         val descField: TextView = findViewById<TextView>(R.id.recipe_desc)
+         val cooktimeField: TextView = findViewById<TextView>(R.id.recipe_cooktime)
+         val preptimeField: TextView = findViewById<TextView>(R.id.recipe_preptime)
+         val vegeterianField: TextView = findViewById<TextView>(R.id.recipe_vegeterian)
+         val veganField: TextView = findViewById<TextView>(R.id.recipe_vegan)
+         val dairyfreeField: TextView = findViewById<TextView>(R.id.recipe_dairyfree)
+         val glutenfreeField: TextView = findViewById<TextView>(R.id.recipe_glutenfree)
+         val caloriesField: TextView = findViewById<TextView>(R.id.recipe_calories)
+         val servingsField: TextView = findViewById<TextView>(R.id.recipe_servings)
+
+
+         nameField.text = thisrecipe.name
+         descField.text = thisrecipe.text
+         cooktimeField.text = thisrecipe.params.cooktime
+         preptimeField.text = thisrecipe.params.preptime
+         vegeterianField.text = thisrecipe.params.isVegetarian
+         veganField.text = thisrecipe.params.isVegan
+         dairyfreeField.text = thisrecipe.params.isDairyFree
+         glutenfreeField.text = thisrecipe.params.isGlutenFree
+         caloriesField.text = thisrecipe.params.calories
+         servingsField.text = thisrecipe.params.servings
+
     }
 
 }

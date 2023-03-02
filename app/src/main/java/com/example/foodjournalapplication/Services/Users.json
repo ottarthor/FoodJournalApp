@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "johndoe",
+      "password": "password123"
+    },
+    {
+      "id": 2,
+      "username": "janedoe",
+      "password": "securePassword!"
+    },
+    {
+      "id": 3,
+      "username": "bobsmith",
+      "password": "123456"
+    },
+    {
+      "id": 4,
+      "username": "annasmith",
+      "password": "password1234"
+    },
+    {
+      "id": 5,
+      "username": "mikejones",
+      "password": "jonesmike"
+    },
+    {
+      "id": 6,
+      "username": "jennybrown",
+      "password": "brownjenny"
+    },
+    {
+      "id": 7,
+      "username": "johndoe1",
+      "password": "pass123"
+    },
+    {
+      "id": 8,
+      "username": "janedoe2",
+      "password": "passwordSecure"
+    },
+    {
+      "id": 9,
+      "username": "bobsmith3",
+      "password": "12345678"
+    },
+    {
+      "id": 10,
+      "username": "annasmith4",
+      "password": "password12345"
+    }
+  ]
+}

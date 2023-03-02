@@ -1,12 +1,14 @@
 package com.example.foodjournalapplication.Entity;
 
+import com.example.foodjournalapplication.Entity.Help.recipeParams;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import is.hi.hbv601g.foodjournal.Entity.Help.recipeParams;
+
 
 public class recipe implements Serializable {
     private Long UserID;
@@ -42,6 +44,18 @@ public class recipe implements Serializable {
     public recipe(String name, String text){
         this.name=name;
         this.text=text;
+    }
+
+    /**
+     * Temporary constructor for recipe until network manager will be accessible
+     * @param name Name of the recipe
+     * @param text Description for the recipe
+     * @param params parameters of the recipe
+     */
+    public recipe(String name, String text, recipeParams params){
+        this.name = name;
+        this.text = text;
+        this.params = params;
     }
 
 
