@@ -54,6 +54,7 @@ class NetworkManager private constructor(private val mContext: Context) {
             }
         }
         mQueue!!.add(request)
+
     }
 
 
