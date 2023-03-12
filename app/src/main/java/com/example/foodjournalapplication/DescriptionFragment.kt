@@ -1,4 +1,4 @@
-package com.example.baraxmlogfragments
+package com.example.foodjournalapplication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
