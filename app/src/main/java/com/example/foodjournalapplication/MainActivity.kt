@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private var telja = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
@@ -86,5 +85,16 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         //navView.setupWithNavController(navController)
+
+        val buttonUsers = findViewById<Button>(R.id.GetUsers)
+        buttonUsers.setOnClickListener{
+            onClickUsers();
+        }
+    }
+    fun onClickUsers() {
+        var UserList = userService.getUsers(this);
+        for (user in UserList ){
+            Log.d("TEST", user.username)
+        }
     }
 }
