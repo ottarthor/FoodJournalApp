@@ -80,7 +80,21 @@
             android:inputType="textPassword"
             android:textColor="@color/black" />
 
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:text="@string/errorMessage"
+            android:textColor="@color/red"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:layout_gravity="center"
+            tools:layout_editor_absoluteX="105dp"
+            tools:layout_editor_absoluteY="518dp" />
+
     </LinearLayout>
+
 
     <Button
         android:id="@+id/LoginButtonID"
@@ -91,5 +105,6 @@
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/view" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
