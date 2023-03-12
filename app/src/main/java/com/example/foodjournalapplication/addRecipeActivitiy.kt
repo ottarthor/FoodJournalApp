@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+
 import com.example.foodjournalapplication.Entity.recipe
 import com.example.foodjournalapplication.Entity.Help.recipeParams
 import java.util.ArrayList
@@ -18,6 +19,27 @@ class addRecipeActivitiy : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_recipe_activitiy)
+
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.disID, DescriptionFragment())
+            commit()
+        }
+
+        val descriptionButton = findViewById<Button>(R.id.description_button)
+        val ingredientButton = findViewById<Button>(R.id.ingredients_button)
+        val stepsButton = findViewById<Button>(R.id.steps_button)
+
+        descriptionButton.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.disID, DescriptionFragment()).commit()
+        }
+
+        ingredientButton.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.disID, IngredientFragment()).commit()
+        }
+
+        stepsButton.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.disID, StepsFragment()).commit()
+        }
 
         if (intent.extras != null) {
             recipeList = intent.getSerializableExtra("RecipeList") as ArrayList<recipe>
@@ -70,8 +92,4 @@ class addRecipeActivitiy : AppCompatActivity() {
         }
         else return s
     }
-
-
-
-
 }
