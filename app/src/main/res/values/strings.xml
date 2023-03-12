@@ -16,5 +16,19 @@
     <string name="signup_password">Choose a password</string>
     <string name="signup_button">Sign up</string>
     <string name="signup_to_login_button">Already have an account? Login</string>
-
+    <string name="ingredient">Ingredient</string>
+    <string name="add_recipe">Add recipe</string>
+    <string name="amount">Amount</string>
+    <string name="zero">0</string>
+    <string name="step1">Step 1</string>
+    <string name="addstep">Add step</string>
+    <string name="preptime">Prep time</string>
+    <string name="cooktime">Cook time</string>
+    <string name="calories">Calories</string>
+    <string name="servings">Servings</string>
+    <string name="title">Title</string>
+    <string name="vegan">Vegan</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="dairyfree">Dairy free</string>
+    <string name="glutenfree">Gluten free</string>
 </resources>
