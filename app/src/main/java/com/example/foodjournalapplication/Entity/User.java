@@ -1,19 +1,27 @@
 package com.example.foodjournalapplication.Entity;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class user {
+public class User {
+    @SerializedName("id")
     private Long id;
+    @SerializedName("username")
     private String username;
+    @SerializedName("password")
     private String password;
+    @SerializedName("groceryWeek")
     private String groceryWeek;
-
+    @SerializedName("temp_ingred")
     private String temp_ingred;
 
+    @SerializedName("temp_amount")
     private String temp_amount;
+    @SerializedName("weeklyGroceries")
     Map<String,String> weeklyGroceries = new HashMap<String, String >();;
 
     public String getUsername() {
@@ -90,7 +98,12 @@ public class user {
         return list;
     }
 
-    public user() {
+    public User() {
+        groceryWeek = "null";
+    }
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
         groceryWeek = "null";
     }
 

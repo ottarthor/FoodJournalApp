@@ -7,6 +7,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.foodjournalapplication.Entity.User
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
@@ -36,16 +37,26 @@ class NetworkManager private constructor(private val mContext: Context) {
         mQueue!!.add(request)
     }
 
-    fun authUser(callback: NetworkCallback<Boolean>){
-        val request = StringRequest(
-            Request.Method.GET, "$BASE_URL/login_app", { response: String ->
+    fun authUserPost(callback: NetworkCallback<String>, user: User){
+        val request = object: StringRequest(
+            Method.POST, "$BASE_URL/login_app", { response: String ->
                 var gson = Gson()
-                var answer = gson.fromJson(response,Boolean::class.java);
+                var answer = gson.fromJson(response, String::class.java);
                 callback.onSuccess(answer)
+            },
+
+            { error: VolleyError -> callback.onFailure(error.toString()) }) {
+            override fun getParams(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["username"] = user.username
+                params["password"] = user.password
+                return params
             }
-        ) { error: VolleyError -> callback.onFailure(error.toString()) }
+        }
         mQueue!!.add(request)
+
     }
+
 
     companion object {
         private const val BASE_URL = "https://foodjournal-production.up.railway.app"
