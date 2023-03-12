@@ -7,6 +7,42 @@
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize">
 
+    <Button
+        android:id="@+id/calendarB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calendar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewRecipeButton"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <Button
+        android:id="@+id/myndbutton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="88dp"
+        android:text="MYND"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintEnd_toEndOf="@+id/view5"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="@+id/view5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/myndbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="88dp"
+        android:text="MYND"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintEnd_toEndOf="@+id/view5"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="@+id/view5"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
         android:id="@+id/view4"
         android:layout_width="393dp"
@@ -77,6 +113,7 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="387dp"
         android:layout_height="420dp"
         app:layout_constraintBottom_toBottomOf="@+id/view9"
@@ -89,7 +126,7 @@
             android:id="@+id/SVLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:orientation="vertical" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

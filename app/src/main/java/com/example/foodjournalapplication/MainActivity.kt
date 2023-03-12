@@ -1,16 +1,22 @@
+
+
 package com.example.foodjournalapplication
 
+
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodjournalapplication.Entity.recipe
 import com.example.foodjournalapplication.NetworkManager.NetworkCallback
 import com.example.foodjournalapplication.NetworkManager.NetworkManager
-import com.example.foodjournalapplication.Services.userService
+import com.example.foodjournalapplication.Services.userServices
 import com.example.foodjournalapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,13 +25,23 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private var PICK_IMAGE_REQUEST: Int = 99;
+    private lateinit var imagePath: Uri;
+    private lateinit var imageToStore: Bitmap;
+
     private var telja = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
+        val mynd = findViewById<Button>(R.id.myndbutton)
+        mynd.setOnClickListener {
+            val myndIntent = Intent(this@MainActivity, photoActivity::class.java)
+            startActivity(myndIntent)
+        }
+
         /*
-        val us = userService()
+        val us = userServices()
         us.getUsers()
         */
 
@@ -60,25 +76,47 @@ class MainActivity : AppCompatActivity() {
             startActivity(signupIntent)
         }
 
-
-        if (intent.extras != null) {
-            val newRecipe = intent.getSerializableExtra("newRecipe") as recipe
-            val recipeButton = Button(this@MainActivity)
-            val ViewInt = Intent(this@MainActivity, recipeViewActivity::class.java)
-            mLayout.addView(recipeButton)
-            ViewInt.putExtra("Recipe", newRecipe)
-            recipeButton.setText(newRecipe.name)
-            recipeButton.setOnClickListener{
-                startActivity(ViewInt)
-            }
-
-
+        val calendarB = findViewById<Button>(R.id.calendarB)
+        calendarB.setOnClickListener {
+            val calendarIntent = Intent(this@MainActivity, MainCalendarActivity::class.java)
+            startActivity(calendarIntent)
         }
 
         buttonNewRec.setOnClickListener{
             val newRecIntent = Intent(this@MainActivity, addRecipeActivitiy::class.java)
             startActivity(newRecIntent)
         }
+
+        if (intent.extras != null) {
+            val newRecipe = intent.getSerializableExtra("newRecipe") as recipe
+            val recipeButton = Button(this@MainActivity)
+            val ViewInt = Intent(this@MainActivity, recipeViewActivity::class.java)
+            val mLayout = findViewById<ScrollView>(R.id.scrollView3);
+            mLayout.addView(recipeButton)
+            ViewInt.putExtra("Recipe", newRecipe)
+            recipeButton.setText(newRecipe.name)
+            recipeButton.setOnClickListener{
+                startActivity(ViewInt)
+            }
+        }
+
+
+        /*
+        button.setOnClickListener {
+            val takki = Button(this@MainActivity)
+            takki.setOnClickListener {
+                val ViewInt = Intent(this@MainActivity, recipeViewActivity::class.java)
+                val s = "Recipe nr " + Integer.toString(telja)
+                telja++
+                val sendRecipe = recipe(s, "letsgooo")
+                ViewInt.putExtra("Recipe", sendRecipe)
+                startActivity(ViewInt)
+            }
+            mLayout.addView(takki)
+        }
+         */
+
+
 
 
         Log.d("NJSK","EFTIR");
@@ -92,9 +130,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun onClickUsers() {
-        var UserList = userService.getUsers(this);
+        var UserList = userServices.getUsers(this);
         for (user in UserList ){
             Log.d("TEST", user.username)
         }
     }
 }
+

@@ -30,12 +30,6 @@ class SecondaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
-        val p = findViewById<ImageView>(R.id.Profile_image)
-        p.setOnClickListener {
-            val pIntent = Intent(this@SecondaryActivity, photoActivity::class.java)
-            startActivity(pIntent)
-        }
-
         val mynd = findViewById<Button>(R.id.myndbutton)
         mynd.setOnClickListener {
             val myndIntent = Intent(this@SecondaryActivity, photoActivity::class.java)
@@ -54,7 +48,7 @@ class SecondaryActivity : AppCompatActivity() {
         //});
 
 
-
+/*
         var NM = NetworkManager.getInstance(this);
         NM!!.getTest(object : NetworkCallback<String> {
             override fun onSuccess(result: String) {
@@ -67,6 +61,8 @@ class SecondaryActivity : AppCompatActivity() {
                 Log.d("TEST TOTODLSMKM", "EPIC Fail");
             }
         })
+
+ */
 
         val mLayout = findViewById<LinearLayout>(R.id.SVLayout)
         val buttonNewRec = findViewById<Button>(R.id.NewRecipeButton)
