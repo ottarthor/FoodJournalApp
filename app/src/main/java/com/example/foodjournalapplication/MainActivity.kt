@@ -85,16 +85,5 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         //navView.setupWithNavController(navController)
-
-        val buttonUsers = findViewById<Button>(R.id.GetUsers)
-        buttonUsers.setOnClickListener{
-            onClickUsers();
-        }
-    }
-    fun onClickUsers() {
-        var UserList = userService.getUsers(this);
-        for (user in UserList ){
-            Log.d("TEST", user.username)
-        }
     }
 }
