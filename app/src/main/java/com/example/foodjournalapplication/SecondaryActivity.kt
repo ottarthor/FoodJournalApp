@@ -12,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.foodjournalapplication.Entity.recipe
 import com.example.foodjournalapplication.NetworkManager.NetworkCallback
 import com.example.foodjournalapplication.NetworkManager.NetworkManager
+import com.example.foodjournalapplication.Services.userServices
 import com.example.foodjournalapplication.databinding.ActivityMainBinding
 
 class SecondaryActivity : AppCompatActivity() {
+
 
     private lateinit var test: String
 
@@ -25,7 +27,6 @@ class SecondaryActivity : AppCompatActivity() {
     private lateinit var imageToStore: Bitmap;
 
     private var telja = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
@@ -37,20 +38,13 @@ class SecondaryActivity : AppCompatActivity() {
         }
 
         /*
-        Attach a picture
-         */
-        //val profileImage = findViewById<ImageView>(R.id.Profile_image);
-
-        //profileImage.setOnClickListener(View.OnClickListener() {
-        //    fun onClick (view: View){
-        //        chooseImage();
-        //    }
-        //});
+        val us = userServices()
+        us.getUsers()
+        */
 
 
-/*
         var NM = NetworkManager.getInstance(this);
-        NM!!.getTest(object : NetworkCallback<String> {
+        /*NM!!.getTest(object : NetworkCallback<String> {
             override fun onSuccess(result: String) {
                 if (result != null) {
                     test = result
@@ -62,7 +56,7 @@ class SecondaryActivity : AppCompatActivity() {
             }
         })
 
- */
+         */
 
         val mLayout = findViewById<LinearLayout>(R.id.SVLayout)
         val buttonNewRec = findViewById<Button>(R.id.NewRecipeButton)
@@ -103,6 +97,7 @@ class SecondaryActivity : AppCompatActivity() {
             }
         }
 
+
         /*
         button.setOnClickListener {
             val takki = Button(this@MainActivity)
@@ -119,65 +114,22 @@ class SecondaryActivity : AppCompatActivity() {
          */
 
 
-        if (intent.extras != null) {
-            val newRecipe = intent.getSerializableExtra("newRecipe") as recipe
-            val recipeButton = Button(this@SecondaryActivity)
-            val ViewInt = Intent(this@SecondaryActivity, recipeViewActivity::class.java)
-            mLayout.addView(recipeButton)
-            ViewInt.putExtra("Recipe", newRecipe)
-            recipeButton.setText(newRecipe.name)
-            recipeButton.setOnClickListener{
-                startActivity(ViewInt)
-            }
-
-
-        }
-
-        buttonNewRec.setOnClickListener{
-            val newRecIntent = Intent(this@SecondaryActivity, addRecipeActivitiy::class.java)
-            startActivity(newRecIntent)
-        }
 
 
         Log.d("NJSK","EFTIR");
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         //navView.setupWithNavController(navController)
-    }
 
-
-    /*
-    private fun chooseImage(){
-        try {
-            val intent = Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(intent, PICK_IMAGE_REQUEST);
-        }
-        catch (e: Exception) {
-            Toast.makeText(getApplicationContext(), e.message, Toast.LENGTH_SHORT).show();
+        val buttonUsers = findViewById<Button>(R.id.GetUsers)
+        buttonUsers.setOnClickListener{
+            onClickUsers();
         }
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data);
-        try {
-            if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null){
-                val profileImage = findViewById<ImageView>(R.id.Profile_image);
-
-                var imagePath = data.data;
-                var imageToStore = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), imagePath);
-                profileImage.setImageBitmap(imageToStore);
-            }
-        }
-
-        catch (e: Exception) {
-            Toast.makeText(getApplicationContext(), e.message, Toast.LENGTH_SHORT).show();
+    fun onClickUsers() {
+        var UserList = userServices.getUsers(this);
+        for (user in UserList ){
+            Log.d("TEST", user.username)
         }
     }
-
-
-
-     */
-     */
 }
