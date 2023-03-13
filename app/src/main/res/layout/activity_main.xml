@@ -64,19 +64,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/GetUsers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GetUsers"
-        app:layout_constraintEnd_toEndOf="@+id/view5"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="@+id/view5"
-        app:layout_constraintTop_toTopOf="@+id/view5" />
-
-    <Button
         android:id="@+id/NewRecipeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:text="New recipe"
         app:layout_constraintEnd_toEndOf="@+id/view5"
         app:layout_constraintHorizontal_bias="0.0"
