@@ -9,10 +9,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.ScrollView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodjournalapplication.Entity.User
 import com.example.foodjournalapplication.Entity.recipe
@@ -33,12 +30,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(ltsIntent);
         }
 
-        /**
-         * Checkar hvort user sé til í DB
-         */
         val loginb = findViewById<Button>(R.id.LoginButtonID)
         loginb.setOnClickListener {
-            val username = findViewById<EditText>(R.id.LoginUsernameAreaID).text
+            /*val username = findViewById<EditText>(R.id.LoginUsernameAreaID).text
             val password = findViewById<EditText>(R.id.LoginPasswordAreaID).text
             val userL = User(
                 username.toString(),
@@ -61,8 +55,34 @@ class MainActivity : AppCompatActivity() {
                 }
             }, userL)
 
-            val loginIntent = Intent(this@MainActivity, SecondaryActivity::class.java)
-            startActivity(loginIntent)
+             */
+            val username = findViewById<EditText>(R.id.LoginUsernameAreaID).text.toString()
+            val password = findViewById<EditText>(R.id.LoginPasswordAreaID).text.toString()
+            val errorMessage = findViewById<TextView>(R.id.errorMessage)
+
+            var user = loginFunction(username,password)
+
+            if(user == null){
+                errorMessage.visibility = View.VISIBLE;
+            }
+            else{
+                Log.d("ÚSERINN",user.username)
+                val newRecIntent = Intent(this@MainActivity, HomeActivity::class.java)
+                startActivity(newRecIntent)
+            }
+
         }
+    }
+
+    fun loginFunction(username: String, password: String ): User? {
+        var userList = userServices.getUsers(this);
+        for (user in userList ){
+            if(user.username == username){
+                if(user.password == password){
+                    return user;
+                }
+            }
+        }
+        return null;
     }
 }

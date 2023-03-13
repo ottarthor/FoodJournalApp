@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Foodjournal</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_search">Search</string>
+    <string name="title_recipes">Recipes</string>
+    <string name="title_grocerylist">Grocery list</string>
+    <string name="title_calendar">Calendar</string>
+
     <string name="login_text">Login</string>
     <string name="login_username">Username</string>
     <string name="login_password">Password</string>
@@ -33,4 +36,5 @@
     <string name="glutenfree">Gluten free</string>
     <string name="forward">NEXT</string>
     <string name="back">PREV</string>
+    <string name="errorMessage">Error</string>
 </resources>
