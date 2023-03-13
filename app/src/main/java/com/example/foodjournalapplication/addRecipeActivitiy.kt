@@ -76,7 +76,7 @@ class addRecipeActivitiy : AppCompatActivity() {
 
             val newRecipe = recipe(recipeTitle,recipeDesc,recipeParams)
 
-            val recipeCreatedIntent = Intent(this@addRecipeActivitiy, MainActivity::class.java)
+            val recipeCreatedIntent = Intent(this@addRecipeActivitiy, SecondaryActivity::class.java)
             recipeCreatedIntent.putExtra("newRecipe", newRecipe)
             startActivity(recipeCreatedIntent)
 

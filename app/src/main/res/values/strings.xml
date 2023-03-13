@@ -31,5 +31,6 @@
     <string name="vegetarian">Vegetarian</string>
     <string name="dairyfree">Dairy free</string>
     <string name="glutenfree">Gluten free</string>
-    <string name="errorMessage">Wrong username or password. Try again.</string>
+    <string name="forward">NEXT</string>
+    <string name="back">PREV</string>
 </resources>

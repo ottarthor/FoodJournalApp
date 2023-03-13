@@ -53,9 +53,9 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="714dp"
-        android:background="@color/grey2"
+        android:background="@color/gray"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                     android:layout_width="185dp"
                     android:layout_height="180dp"
                     android:layout_weight="1"
-                    android:text="@string/recipes_home"
+                    android:text="RECIPES"
                     android:background="@color/white"/>
 
 
@@ -94,7 +94,7 @@
                     android:layout_width="185dp"
                     android:layout_height="180dp"
                     android:layout_weight="1"
-                    android:text="@string/calendar_home"
+                    android:text="CALENDAR"
                     android:background="@color/white"/>
 
                 <Space
@@ -126,7 +126,7 @@
                     android:layout_width="185dp"
                     android:layout_height="180dp"
                     android:layout_weight="1"
-                    android:text="@string/recipes_home"
+                    android:text="RECIPES"
                     android:background="@color/white"/>
 
 
@@ -135,7 +135,7 @@
                     android:layout_width="185dp"
                     android:layout_height="180dp"
                     android:layout_weight="1"
-                    android:text="@string/calendar_home"
+                    android:text=""
                     android:background="@color/white"/>
 
                 <Space

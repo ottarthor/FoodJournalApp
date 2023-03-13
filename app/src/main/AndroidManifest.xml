@@ -20,6 +20,18 @@
             android:name=".addRecipeActivitiy"
             android:exported="false" />
         <activity
+            android:name=".MainCalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".photoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SecondaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeekViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".loginActivity"
             android:exported="false" />
         <activity

@@ -7,7 +7,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.IOException
 
-object userService {
+object userServices {
     fun getUsers(context: Context): List<User> {
         var jsonString = ""
         try {
